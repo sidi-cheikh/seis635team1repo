@@ -54,13 +54,21 @@ public class Copy
 
 }
 
-	@Override
+	
 	public boolean equals(Object o)
 	{
 		// finish this: two are equals iff same copy ID
+		if (o == null) return false;
+		  if (o == this) return true;
 
+		  if (!(o instanceof Copy)) return false; // OR
+		  if (o.getClass() != getClass()) return false;
+
+		 
+		
 		return false;
 	}
+
 
 	public static void main(String[] args)
 	{
