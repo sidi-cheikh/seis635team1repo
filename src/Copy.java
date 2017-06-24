@@ -59,14 +59,14 @@ public class Copy
 	{
 		// finish this: two are equals iff same copy ID
 		if (o == null) return false;
-		  if (o == this) return true;
+		if (o == this) return true;
 
-		  if (!(o instanceof Copy)) return false; // OR
-		  if (o.getClass() != getClass()) return false;
+		if (!(o instanceof Copy)) return false; // OR
+		if (o.getClass() != getClass()) return false;
 
-		 
+		Copy copy = (Copy) o;
+		return this.copyID.equals(copy.copyID);
 		
-		return false;
 	}
 
 
