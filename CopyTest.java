@@ -19,9 +19,7 @@ public class CopyTest {
 		Copy b1 = new Copy ("123", "Software Analysis and Design");
 			b1.getOutTo();
 			assertEquals("Software Analysis and Design by 123; Available", 
-					b1.toString());
-			
-			
+					b1.toString());	
 		}
 	
 
