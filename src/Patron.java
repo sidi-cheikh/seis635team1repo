@@ -3,12 +3,11 @@ import java.util.ArrayList;
 public class Patron {
 	private String name;
 	private String patronID;
-	private Copy C1, C2;
+	//private Copy C1, C2;
 	private ArrayList<Copy> copiesOut;
 
 	public Patron()
-	{ C1=null; 
-	C2=null; 
+	{ 
 	
 	}
 
