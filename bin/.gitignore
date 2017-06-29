@@ -6,5 +6,7 @@
 /Patron.class
 /PatronTest.class
 /TextBookRental.class
-/Employee.class
-/Worker.class
+/Controller.class
+/Model.class
+/Session.class
+/Hold.class

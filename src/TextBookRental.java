@@ -10,8 +10,8 @@ public class TextBookRental {
 		System.out.println("Enter a valid username: ");
 		String username = reader.nextLine();
 		
-		System.out.println("Enter the password: ");
-		String password = reader.nextLine();
+//		System.out.println("Enter the password: ");
+//		String password = reader.nextLine();
 
 		boolean loggedIn = false;
 
