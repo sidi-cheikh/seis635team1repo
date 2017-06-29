@@ -3,11 +3,12 @@ import java.util.Map;
 
 public class FakeDB
 {
+
 	private static Map<String, Patron> patronStore;
 	private static Map<String, Copy> copyStore;
 	private static Map<Integer, Session> sessionStore;
 	private static Map<String, Worker> workerStore;
-	
+
 	
 	static // the following runs once when class is loaded: "static initializer"
 	{
@@ -34,6 +35,7 @@ public class FakeDB
 		return copyStore.get(copyID);
 	}
 	
+
 	public static void SaveSessionData(Session s)
 	{
 		Integer count = sessionStore.size();

@@ -38,15 +38,6 @@ public class Patron {
 	}
 
 	public boolean checkCopyIn(Copy title) {
-		// finish this
-		/*if (C1.equals(title)){
-			C1 = null;
-			return true;
-			} else if (C2.equals(title)) {
-				C2 = null;
-			return true;
-		}*/
-		
 		
 		copiesOut.remove(title);
 		
@@ -101,3 +92,4 @@ public class Patron {
 	}
 
 }
+

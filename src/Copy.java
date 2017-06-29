@@ -1,4 +1,4 @@
-// testing//
+
 public class Copy
 {
 	private String copyID;
@@ -80,6 +80,5 @@ public class Copy
 		
 		Copy c2 = FakeDB.getCopy("C2");
 	}
-
 	
 }
