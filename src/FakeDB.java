@@ -30,15 +30,13 @@ public class FakeDB
 		return copyStore.get(copyID);
 	}
 	
-<<<<<<< HEAD
-=======
+
 	public static void SaveSessionData(Session s)
 	{
 		Integer count = sessionStore.size();
 		sessionStore.put(count +1 , s);
 	}
 	
->>>>>>> fb37bd7e3c880e6111308b544192510916a79802
 	public static void main(String[] args)
 	{
 		// TODO Auto-generated method stub
