@@ -3,13 +3,23 @@ import java.util.Map;
 
 public class FakeDB
 {
+<<<<<<< HEAD
 	private static Map<String,Patron> patronStore;
 	private static Map<String,Copy> copyStore;
+=======
+	private static Map<String, Patron> patronStore;
+	private static Map<String, Copy> copyStore;
+	private static Map<Integer, Session> sessionStore;
+>>>>>>> fb37bd7e3c880e6111308b544192510916a79802
 	
 	static // the following runs once when class is loaded: "static initializer"
 	{
 		patronStore = new HashMap<String,Patron>();
 		copyStore = new HashMap<String,Copy>();
+<<<<<<< HEAD
+=======
+		sessionStore = new HashMap<Integer, Session>();
+>>>>>>> fb37bd7e3c880e6111308b544192510916a79802
 		
 		patronStore.put("P1", new Patron("P1", "Eric"));
 		copyStore.put("C1", new Copy("C1", "Fun with Objects"));
@@ -27,6 +37,15 @@ public class FakeDB
 		return copyStore.get(copyID);
 	}
 	
+<<<<<<< HEAD
+=======
+	public static void SaveSessionData(Session s)
+	{
+		Integer count = sessionStore.size();
+		sessionStore.put(count +1 , s);
+	}
+	
+>>>>>>> fb37bd7e3c880e6111308b544192510916a79802
 	public static void main(String[] args)
 	{
 		// TODO Auto-generated method stub

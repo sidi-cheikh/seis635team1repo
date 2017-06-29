@@ -80,6 +80,10 @@ public class Copy
 		
 		Copy c2 = FakeDB.getCopy("C2");
 	}
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> fb37bd7e3c880e6111308b544192510916a79802
 	
 }

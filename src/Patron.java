@@ -1,15 +1,13 @@
-
 import java.util.ArrayList;
 
 public class Patron {
 	private String name;
 	private String patronID;
-	private Copy C1, C2;
+	//private Copy C1, C2;
 	private ArrayList<Copy> copiesOut;
 
 	public Patron()
-	{ setC1(null); 
-	setC2(null); 
+	{ 
 	
 	}
 
@@ -19,33 +17,21 @@ public class Patron {
 		copiesOut = new ArrayList<Copy>();
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public Copy getC1() {
-		return C1;
-	}
-
-	public void setC1(Copy c1) {
-		C1 = c1;
-	}
-
-	public Copy getC2() {
-		return C2;
-	}
-
-	public void setC2(Copy c2) {
-		C2 = c2;
-	}
-
-
+	
 	public String getPatronID() {
 		return patronID;
 	}
-	
-	
+
 	public boolean checkCopyOut(Copy c) {
+		// finish this
+		/*if (C1 == null) {
+			C1 = c;
+			return true;
+		} else if (C2 == null) {
+			C2 = c;
+			return true;
+		}*/
+		
 		copiesOut.add(c);
 		
 		return true;
@@ -100,4 +86,10 @@ public class Patron {
 		//Copy c1 = FakeDB.getCopy("C1");
 	}
 
+	public String getName() {
+		// TODO Auto-generated method stub
+		return name;
+	}
+
 }
+
