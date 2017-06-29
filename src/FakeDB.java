@@ -20,7 +20,7 @@ public class FakeDB
 		patronStore.put("P1", new Patron("P1", "Eric"));
 		copyStore.put("C1", new Copy("C1", "Fun with Objects"));
 		copyStore.put("C2", new Copy("C2", "More Fun with Objects"));
-		
+		 
 		
 		workerStore.put("worker1", new Worker("worker1", "pass"));
 	}
