@@ -9,15 +9,22 @@ public class Controller {
 		model = new Model();
 	}
 	
-	public Session startSession(){
-		return new Session();
+	public Worker login(String username, String password){
+		
+		return model.findWorker(username, password);
 	}
 	
-	public Patron scanPatronId(String patronId){
+	public Patron startSession(String patronId){
+		this.session = new Session();
+		
 		Patron p = model.getPatron(patronId);
+		
+		session.patron = p;
+		
 		return p;
 	}
-	 
+	
+
 	public Copy checkoutCopy(String copyId){
 		/*TODO make sure the patron doesn't have hold  */
 		

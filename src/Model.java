@@ -12,4 +12,14 @@ public class Model {
 		return FakeDB.getCopy(copyId);
 	} 
 	
+	public Worker findWorker(String workerlogin, String workerpasswd){
+		Worker w = FakeDB.getWorker(workerlogin);
+		if(w != null && w.getPassword().equals(workerpasswd)){
+			return w;
+		}
+		else
+		{
+			return null;
+		}
+	}
 }
