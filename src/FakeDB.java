@@ -7,12 +7,9 @@ public class FakeDB
 	private static Map<String, Patron> patronStore;
 	private static Map<String, Copy> copyStore;
 	private static Map<Integer, Session> sessionStore;
-<<<<<<< HEAD
-=======
 	private static Map<String, Worker> workerStore;
 
->>>>>>> fa26946f14e800c3c8740f34d7891fca74ac2392
-	
+
 	static // the following runs once when class is loaded: "static initializer"
 	{
 		patronStore = new HashMap<String,Patron>();
