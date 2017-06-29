@@ -6,7 +6,7 @@ public class FakeDB
 
 	private static Map<String, Patron> patronStore;
 	private static Map<String, Copy> copyStore;
-	private static Map<Integer, Session> sessionStore;s
+	private static Map<Integer, Session> sessionStore;
 	
 	static // the following runs once when class is loaded: "static initializer"
 	{
