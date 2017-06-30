@@ -30,7 +30,7 @@ public class Controller {
 		
 		// check if the copy exists
 		Copy c = model.findCopy(copyId);
-		if(c != null){
+		if(c != null && c.isAvailable()){
 			Patron p = session.getPatron();
 			p.checkCopyOut(c);
 		}

@@ -1,15 +1,21 @@
+import java.util.Calendar;
+import java.util.Date;
 
 public class Copy
 {
 	private String copyID;
 	private String title;
 	private Patron outTo;
+	private Date checkoutDate;
+	private Date dueDate;
+	private int duration = 0; //10 days
 
 	public Copy(String copyID, String title)
 	{
 		this.setCopyID(copyID);
 		this.setTitle(title);
 	}
+	
 	public String getCopyID() {
 		return copyID;
 	}
@@ -32,9 +38,26 @@ public class Copy
 
 	public void setOutTo(Patron outTo) {
 		this.outTo = outTo;
+		this.checkoutDate = new Date();
+		
+		Calendar c = Calendar.getInstance();
+		c.setTime(this.checkoutDate);
+		c.add(Calendar.DATE, this.duration);
+		this.dueDate = c.getTime();
 	}
 // generate getters and setters using Eclipse Source menu
 
+	public boolean isOverdue(){
+		Date now = new Date();
+		if( now.compareTo(dueDate) > 0){
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
 	public String toString()
 	{
 		String available;
@@ -67,9 +90,14 @@ public class Copy
 		Copy copy = (Copy) o;
 		return this.copyID.equals(copy.copyID);
 		
+	} 
+
+
+	public boolean isAvailable()
+	{
+		return outTo == null;
 	}
-
-
+	
 	public static void main(String[] args)
 	{
 		Copy c1 = new Copy("C1", "Fun with Objects");

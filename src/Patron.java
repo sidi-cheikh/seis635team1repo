@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Patron {
 	private String name;
@@ -33,6 +34,7 @@ public class Patron {
 		}*/
 		
 		copiesOut.add(c);
+		c.setOutTo(this);
 		
 		return true;
 	}
@@ -40,6 +42,7 @@ public class Patron {
 	public boolean checkCopyIn(Copy title) {
 		
 		copiesOut.remove(title);
+		title.setOutTo(null);
 		
 		return false;
 	}
@@ -66,6 +69,13 @@ public class Patron {
 			}
 		}
 		
+		if(hasOverdueCopy()){
+			result += "WARNING: The patron has these copies past due date\n";
+			for(Copy c: getOverdueCopies()){
+				result += " - "+ c.getTitle();
+			}
+		}
+		
 		return result;
 	}
 
@@ -86,6 +96,28 @@ public class Patron {
 		//Copy c1 = FakeDB.getCopy("C1");
 	}
 
+	public boolean hasOverdueCopy(){
+		for(Copy c: copiesOut){
+			if (c.isOverdue()) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	public List<Copy> getOverdueCopies(){
+		List<Copy> overdueCopies = new ArrayList<Copy>();
+		for(Copy c: copiesOut){
+			if (c.isOverdue()) {
+				overdueCopies.add(c);
+			}
+		}
+		
+		return overdueCopies;
+	}
+	
+	
 	public String getName() {
 		// TODO Auto-generated method stub
 		return name;

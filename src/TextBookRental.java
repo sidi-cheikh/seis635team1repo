@@ -34,23 +34,12 @@ public class TextBookRental {
 			System.out.println("Enter 2 to Log out");
 			
 			int option = reader.nextInt();
+			reader.nextLine();
 			
 			switch (option) {
 			
 			case 1:
-				System.out.println("Enter PatronID");
-				String read1= reader.nextLine();
-				
-				Patron p = controller.startSession(read1);
-				if(p == null){
-					System.out.println("Could not find a patron with the id "+read1);
-				}
-				else
-				{
-					System.out.println("Displaying Patron information before Checkout");
-					System.out.println(p);
-				}
-				
+				checkoutUI(controller);
 				//p.checkCopyOut(null);
 				//System.out.println("Displaying patron information after checkout");
 				//System.out.println(p);
@@ -66,5 +55,60 @@ public class TextBookRental {
 		}
 
 		System.out.printf("Session closed, you are logged out!");
+	}
+	
+	public static void checkoutUI(Controller controller){
+		System.out.println("Enter PatronID");
+		Scanner reader = new Scanner(System.in);
+		String read1= reader.nextLine();
+		
+		Patron p = controller.startSession(read1);
+		if(p == null){
+			System.out.println("Could not find a patron with the id "+read1);
+			return;
+		}
+
+		System.out.println("Displaying Patron information before Checkout");
+		System.out.println(p);
+
+		
+		if(!p.hasOverdueCopy())
+		{
+			boolean cont = true;
+			System.out.println("Enter CopyID");
+			String copyId = reader.nextLine();
+			
+			while(cont)
+			{
+	
+				Copy cp = controller.checkoutCopy(copyId);
+				
+				if(cp == null)
+				{
+					System.out.println("Copy not found");
+				}
+				else
+				{
+					System.out.println(cp);
+				}
+			
+				System.out.println("enter copy id or 'exit' if you want to end scanning");
+				
+				String response = reader.nextLine();
+				if(response.equals("exit"))
+				{
+					System.out.println("displaying the patron informations after checkout");
+					System.out.println(p);
+					
+					cont = false;
+				}
+				else
+				{
+					copyId = response;
+				}
+			}
+		}
+
+		
 	}
 }
