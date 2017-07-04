@@ -116,7 +116,16 @@ public class Patron {
 		
 		return overdueCopies;
 	}
-	
+	public List<Copy> removeOverdueCopies(){
+		List<Copy> overdueCopiesFinePaid = new ArrayList<Copy>();
+		for(Copy c: copiesOut){
+			if (c.payFine()) {
+				overdueCopiesFinePaid.remove(c);
+			}
+		}
+		
+		return overdueCopiesFinePaid;
+	}
 	
 	public String getName() {
 		// TODO Auto-generated method stub
