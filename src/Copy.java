@@ -102,8 +102,15 @@ public class Copy {
 
 	public boolean payFine() {
 		// TODO Auto-generated method stub
+		if(isOverdue() == true){
+			int payment = fine;
+		return true;
+		}
+		else
+		{
 		return false;
-	}
+		}
+		}
 
 	public static void main(String[] args) {
 		Copy c1 = new Copy("C1", "Fun with Objects");
