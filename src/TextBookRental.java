@@ -78,7 +78,9 @@ public class TextBookRental {
 		System.out.println("Do you want to pay fine (Y/N)");
 		String opt= reader.nextLine();
 			if (opt=="y"||opt=="Y"){
-				int fine =reader.nextInt();
+				
+				Copy c =new Copy();
+				c.getFine();
 			
 			}
 			else

@@ -8,10 +8,23 @@ public class Copy {
 	private Date checkoutDate;
 	private Date dueDate;
 	private int duration = 0; // 10 days
-
+	private int fine = 10;
 	public Copy(String copyID, String title) {
 		this.setCopyID(copyID);
 		this.setTitle(title);
+	}
+
+	public int getFine() {
+		return fine;
+	}
+
+	public void setFine(int fine) {
+		this.fine = fine;
+	}
+
+	public Copy() {
+		
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getCopyID() {
