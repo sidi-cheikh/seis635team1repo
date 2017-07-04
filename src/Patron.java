@@ -105,6 +105,16 @@ public class Patron {
 		
 		return false;
 	}
+	public boolean overdueFinePaid(){
+		for(Copy c: copiesOut){
+			if (c.payFine()) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	
 	public List<Copy> getOverdueCopies(){
 		List<Copy> overdueCopies = new ArrayList<Copy>();
