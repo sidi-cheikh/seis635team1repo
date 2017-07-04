@@ -75,6 +75,12 @@ public class Patron {
 				result += " - "+ c.getTitle();
 			}
 		}
+		if(hasOverdueFinePaid()){
+			result+="Overdue fine has been paid";
+			for( Copy c: getOverdueCopies()){
+				result+= " - " + c.getTitle();
+			}
+		}
 		
 		return result;
 	}
@@ -91,7 +97,6 @@ public class Patron {
 		p1.checkCopyIn(copy);
 		System.out.println(p1);
 		
-
 		//Patron p2 = FakeDB.getPatron("P47");
 		//Copy c1 = FakeDB.getCopy("C1");
 	}
@@ -105,7 +110,7 @@ public class Patron {
 		
 		return false;
 	}
-	public boolean overdueFinePaid(){
+	public boolean hasOverdueFinePaid(){
 		for(Copy c: copiesOut){
 			if (c.payFine()) {
 				return true;
