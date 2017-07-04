@@ -1,4 +1,4 @@
-//sohana
+
 public class Controller {
 
 	Model model;
@@ -35,11 +35,6 @@ public class Controller {
 
 		return c;
 	}
-
-	public void endSession() {
-
-	}
-
 	public Copy checkinCopy(String copyId) {
 		// TODO Auto-generated method stub
 		Copy c = model.findCopy(copyId);
@@ -47,4 +42,10 @@ public class Controller {
 		p.checkCopyIn(c);
 		return c;
 	}
+
+
+	public void endSession() {
+
+	}
+
 }
