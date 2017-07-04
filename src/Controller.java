@@ -45,7 +45,6 @@ public class Controller {
 		Copy c = model.findCopy(copyId);
 		Patron p = session.getPatron();
 		p.checkCopyIn(c);
-
 		return c;
 	}
 }
