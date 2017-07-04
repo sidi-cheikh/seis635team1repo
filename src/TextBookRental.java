@@ -79,12 +79,14 @@ public class TextBookRental {
 		String opt= reader.nextLine();
 			if (opt=="y"||opt=="Y"){
 				int fine =reader.nextInt();
+			
 			}
 			else
 			{
 				System.out.println("You can not checkout new books");
 			}
 			}
+		else
 		{
 			boolean cont = true;
 			System.out.println("Enter CopyID");
