@@ -3,43 +3,49 @@ public class Controller {
 
 	Model model;
 	Session session;
-	
-	public Controller()
-	{
+
+	public Controller() {
 		model = new Model();
 	}
-	
-	public Worker login(String username, String password){
-		
+
+	public Worker login(String username, String password) {
+
 		return model.findWorker(username, password);
 	}
-	
-	public Patron startSession(String patronId){
+
+	public Patron startSession(String patronId) {
 		this.session = new Session();
-		
+
 		Patron p = model.getPatron(patronId);
-		
+
 		session.patron = p;
-		
+
 		return p;
 	}
-	
 
-	public Copy checkoutCopy(String copyId){
-		/*TODO make sure the patron doesn't have hold  */
-		
+	public Copy checkoutCopy(String copyId) {
+		/* TODO make sure the patron doesn't have hold */
+
 		// check if the copy exists
 		Copy c = model.findCopy(copyId);
-		if(c != null && c.isAvailable()){
+		if (c != null && c.isAvailable()) {
 			Patron p = session.getPatron();
 			p.checkCopyOut(c);
 		}
-		
+
 		return c;
 	}
-	
-	
-	public void endSession(){
-		
+
+	public void endSession() {
+
+	}
+
+	public Copy checkinCopy(String copyId) {
+		// TODO Auto-generated method stub
+		Copy c = model.findCopy(copyId);
+		Patron p = session.getPatron();
+		p.checkCopyIn(c);
+
+		return c;
 	}
 }

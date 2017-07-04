@@ -31,7 +31,8 @@ public class TextBookRental {
 
 			System.out.println("Please select from the following options");
 			System.out.println("Enter 1 to Check Copies out");
-			System.out.println("Enter 2 to Log out");
+			System.out.println("Enter 2 to Check Copies in");
+			System.out.println("Enter 3 to Log out");
 			
 			int option = reader.nextInt();
 			reader.nextLine();
@@ -45,6 +46,10 @@ public class TextBookRental {
 				//System.out.println(p);
 				break;
 			case 2:
+				checkinUI(controller);
+				break;
+				
+			case 3:
 				System.out.printf("Session closed, you are logged out!");
 				break;
 			default: 
@@ -57,6 +62,77 @@ public class TextBookRental {
 		System.out.printf("Session closed, you are logged out!");
 	}
 	
+	private static void checkinUI(Controller controller) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter PatronID");
+		Scanner reader = new Scanner(System.in);
+		String read1= reader.nextLine();
+		
+		Patron p = controller.startSession(read1);
+		if(p == null){
+			System.out.println("Could not find a patron with the id "+read1);
+			return;
+		}
+
+		System.out.println("Displaying Patron information before Checkin");
+		System.out.println(p);
+
+		
+		if(p.hasOverdueCopy())
+		{
+		System.out.println("You have a overdue notice pending Please pay fine");
+		System.out.println("Do you want to pay fine (Y/N)");
+		String opt= reader.nextLine();
+			if (opt=="y"||opt=="Y"){
+				
+				Copy c =new Copy();
+				c.getFine();
+			
+			}
+			else
+			{
+				System.out.println("You can not checkin books until you pay fine");
+			}
+			}
+		else
+		{
+			boolean cont = true;
+			System.out.println("Enter CopyID");
+			String copyId = reader.nextLine();
+			
+			while(cont)
+			{
+	
+				Copy cp = controller.checkinCopy(copyId);
+				
+				if(cp == null)
+				{
+					System.out.println("Copy not found");
+				}
+				else
+				{
+					System.out.println(cp);
+				}
+			
+				System.out.println("enter copy id or 'exit' if you want to end scanning");
+				
+				String response = reader.nextLine();
+				if(response.equals("exit"))
+				{
+					System.out.println("displaying the patron informations after checkin");
+					System.out.println(p);
+					
+					cont = false;
+				}
+				else
+				{
+					copyId = response;
+				}
+			}
+		}
+
+	}
+
 	public static void checkoutUI(Controller controller){
 		System.out.println("Enter PatronID");
 		Scanner reader = new Scanner(System.in);
