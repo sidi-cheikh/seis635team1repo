@@ -1,4 +1,0 @@
-//ss
-public class Checkout {
-
-}

@@ -64,12 +64,12 @@ public class Patron {
 		String result = null;
 		if(copiesOut.isEmpty()){
 			 result = "Name: " + name + " \nPatronID: " + patronID +"\n";
-			result += "Checked out copies: 0" + "\nDate: "+p1.date+ "\n";
+			result += "Checked out copies: 0" + "\n";
 		}
 		else
 		{
 			 result = "Name: " + name + " \nPatronID: " + patronID +";"+ "\n";
-			result += "Number of checked out copies: "+ copiesOut.size()+ "\nDate "+p1.date+ "\n";
+			result += "Number of checked out copies: "+ copiesOut.size()+ "\n";
 			result += "Checked out copies: \n";
 			for(Copy c: copiesOut){
 				result += "\nTitle:"+c.getTitle() +"\nCopy ID:"+c.getCopyID()+" \n";
@@ -128,6 +128,11 @@ public class Patron {
 	public String getName() {
 		
 		return name;
+	}
+
+	public boolean hasCheckedOutCopies() {
+		// TODO Auto-generated method stub
+		return copiesOut.size() > 0;
 	}
 	
 	

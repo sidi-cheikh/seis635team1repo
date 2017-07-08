@@ -41,13 +41,20 @@ public class Controller {
 	public Copy checkInCopy(String copyId) {
 		// check if the copy exists
 				Copy c = model.findCopy(copyId);
-				if(c != null && c.isAvailable()){
-					Patron p = session.getPatron();
+				Patron p = session.getPatron();
+				if(c != null && c.getOutTo() == p){
 					p.checkCopyIn(c);
 				}
 				else
-					System.out.println ("Patron does not have any copy out to checkIn");
-				return c;		
+					System.out.println ("Copy not found or not checked out to the patron!");
+				
+				return c;	
+				
+				//@TODO
+				// 1.could not find the copy
+				// 2.the copy is not checked out to the patron
+				// 3.success
+			
 	}
 	
    public void endSession(){

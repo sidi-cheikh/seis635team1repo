@@ -8,7 +8,7 @@ public class Copy
 	private Patron outTo;
 	private Date checkoutDate;
 	private Date dueDate;
-	private int duration = 0; //10 days
+	private int duration = 5; //10 days
 	private Date date;
 
 	public Copy(String copyID, String title)
