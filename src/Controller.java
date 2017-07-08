@@ -37,9 +37,20 @@ public class Controller {
 		
 		return c;
 	}
+
+	public Copy checkInCopy(String copyId) {
+		// check if the copy exists
+				Copy c = model.findCopy(copyId);
+				if(c != null && c.isAvailable()){
+					Patron p = session.getPatron();
+					p.checkCopyIn(c);
+				}
+				else
+					System.out.println ("Patron does not have any copy to checkIn");
+				return c;		
+	}
 	
-	
-	public void endSession(){
+   public void endSession(){
 		
 	}
 }

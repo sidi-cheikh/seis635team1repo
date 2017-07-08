@@ -7,6 +7,7 @@ public class Patron {
 	//private Copy C1, C2;
 	private ArrayList<Copy> copiesOut;
 
+
 	public Patron()
 	{ 
 	
@@ -39,10 +40,10 @@ public class Patron {
 		return true;
 	}
 
-	public boolean checkCopyIn(Copy title) {
+	public boolean checkCopyIn(Copy c) {
 		
-		copiesOut.remove(title);
-		title.setOutTo(null);
+		copiesOut.remove(c);
+		c.setOutTo(null);
 		
 		return false;
 	}
@@ -58,7 +59,7 @@ public class Patron {
 		// finish this: return basic Patron info as String
 		String result = "Name: " + name + "; PatronID: " + patronID + "\n";
 		if(copiesOut.isEmpty()){
-			result += "  Number of checked out copies: 0";
+			result += "  Checked out copies: 0";
 		}
 		else
 		{
@@ -116,12 +117,14 @@ public class Patron {
 		
 		return overdueCopies;
 	}
-	
-	
+
 	public String getName() {
-		// TODO Auto-generated method stub
+		
 		return name;
 	}
+	
+	
+	
 
 }
 
