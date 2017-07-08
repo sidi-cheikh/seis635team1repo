@@ -7,7 +7,7 @@ public class Copy {
 	private Patron outTo;
 	private Date checkoutDate;
 	private Date dueDate;
-	private int duration = 10; // 10 days
+	private int duration = 0; // 10 days
 	private int fine = 10;
 	public Copy(String copyID, String title) {
 		this.setCopyID(copyID);
@@ -106,10 +106,8 @@ public class Copy {
 			int payment = fine;
 		return true;
 		}
-		else
-		{
 		return false;
-		}
+		
 		}
 
 	public static void main(String[] args) {

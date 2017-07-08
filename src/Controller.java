@@ -39,6 +39,7 @@ public class Controller {
 		// TODO Auto-generated method stub
 		Copy c = model.findCopy(copyId);
 		Patron p = session.getPatron();
+	
 		if (p != null){
 		p.checkCopyIn(c);
 		}

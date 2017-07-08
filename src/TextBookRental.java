@@ -32,8 +32,9 @@ public class TextBookRental {
 			System.out.println("Please select from the following options");
 			System.out.println("Enter 1 to Check Copies out");
 			System.out.println("Enter 2 to Check Copies in");
-			System.out.println("Enter 3 to Log out");
-			
+			System.out.println(" Enter 3 Overdue Reports");
+			System.out.println("Enter 4 to Log out");
+			System.out.println("Please enter your choice");
 			int option = reader.nextInt();
 			reader.nextLine();
 			
@@ -50,6 +51,10 @@ public class TextBookRental {
 				break;
 				
 			case 3:
+				overdueUI(controller);
+				break;
+				
+			case 4:
 				System.out.printf("Session closed, you are logged out!");
 				break;
 			default: 
@@ -62,6 +67,17 @@ public class TextBookRental {
 		System.out.printf("Session closed, you are logged out!");
 	}
 	
+	private static void overdueUI(Controller controller) {
+		// TODO Auto-generated method stub
+		Patron p = new Patron();
+		if(p.hasOverdueCopy()){
+		p.getOverdueCopies();
+		}
+		else{
+			System.out.println("No over due copies ");
+		}
+	}
+
 	private static void checkinUI(Controller controller) {
 		// TODO Auto-generated method stub
 		System.out.println("Enter PatronID");
@@ -83,10 +99,11 @@ public class TextBookRental {
 		System.out.println("You have a overdue notice pending Please pay fine");
 		System.out.println("Do you want to pay fine (Y/N)");
 		String opt= reader.nextLine();
-			if (opt=="y"||opt=="Y"){
+			if (opt == "y"||opt == "Y"){
 				
-				Copy c =new Copy();
-				c.getFine();
+			//	Copy c =new Copy();
+				//c.getFine();
+				checkingInCopies(controller, reader, p);
 			
 			}
 			else
@@ -96,41 +113,45 @@ public class TextBookRental {
 			}
 		else
 		{
-			boolean cont = true;
-			System.out.println("Enter CopyID");
-			String copyId = reader.nextLine();
-			
-			while(cont)
-			{
-	
-				Copy cp = controller.checkinCopy(copyId);
-				
-				if(cp == null)
-				{
-					System.out.println("Copy not found");
-				}
-				else
-				{
-					System.out.println(cp);
-				}
-			
-				System.out.println("enter copy id or 'exit' if you want to end scanning");
-				
-				String response = reader.nextLine();
-				if(response.equals("exit"))
-				{
-					System.out.println("displaying the patron informations after checkin");
-					System.out.println(p);
-					
-					cont = false;
-				}
-				else
-				{
-					copyId = response;
-				}
-			}
+			checkingInCopies(controller, reader, p);
 		}
 
+	}
+
+	public static void checkingInCopies(Controller controller, Scanner reader, Patron p) {
+		boolean cont = true;
+		System.out.println("Enter CopyID");
+		String copyId = reader.nextLine();
+		
+		while(cont)
+		{
+
+			Copy cp = controller.checkinCopy(copyId);
+			
+			if(cp == null)
+			{
+				System.out.println("Copy not found");
+			}
+			else
+			{
+				System.out.println(cp);
+			}
+		
+			System.out.println("enter copy id or 'exit' if you want to end scanning");
+			
+			String response = reader.nextLine();
+			if(response.equals("exit"))
+			{
+				System.out.println("displaying the patron informations after checkin");
+				System.out.println(p);
+				
+				cont = false;
+			}
+			else
+			{
+				copyId = response;
+			}
+		}
 	}
 
 	public static void checkoutUI(Controller controller){
@@ -148,7 +169,7 @@ public class TextBookRental {
 		System.out.println(p);
 
 		
-		if(p.hasOverdueCopy())
+	/*	if(p.hasOverdueCopy())
 		{
 		System.out.println("You have a overdue notice pending Please pay fine");
 		System.out.println("Do you want to pay fine (Y/N)");
@@ -199,8 +220,8 @@ public class TextBookRental {
 					copyId = response;
 				}
 			}
-		}
-/*		if(!p.hasOverdueCopy())
+		}*/
+		if(!p.hasOverdueCopy())
 		{
 			boolean cont = true;
 			System.out.println("Enter CopyID");
@@ -236,7 +257,7 @@ public class TextBookRental {
 				}
 			}
 		}
-*/
+
 		
 	}
 }

@@ -75,13 +75,13 @@ public class Patron {
 				result += " - "+ c.getTitle();
 			}
 		}
-		if(hasOverdueFinePaid()){
+		/*if(hasOverdueFinePaid()){
 			result+="Overdue fine has been paid";
 			for( Copy c: getOverdueCopies()){
 				result+= " - " + c.getTitle();
 			}
 		}
-		
+		*/
 		return result;
 	}
 
