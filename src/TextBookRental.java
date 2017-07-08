@@ -51,11 +51,12 @@ public class TextBookRental {
 				break;
 				
 			case 3:
-				overdueUI(controller);
+				overdueUI(controller);//error 
 				break;
 				
 			case 4:
-				System.out.printf("Session closed, you are logged out!");
+				System.out.printf("Session closed");
+				loggedIn= false;
 				break;
 			default: 
 				System.out.println("Invalid option ");
@@ -63,9 +64,10 @@ public class TextBookRental {
 			}
 			
 		}
+		System.out.println();
+		System.out.println("You are logged out,'RESTART THE APPLICATION'");
 
-		System.out.printf("Session closed, you are logged out!");
-	}
+		}
 	
 	private static void overdueUI(Controller controller) {
 		// TODO Auto-generated method stub
