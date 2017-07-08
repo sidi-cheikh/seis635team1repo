@@ -24,7 +24,7 @@ public class FakeDB
 		copyStore.put("C1", new Copy("C1", "Fun with Objects"));
 		copyStore.put("C2", new Copy("C2", "More Fun with Objects"));
 		Copy C3 = new Copy("C3", "Even More Fun with Objects");
-		copyStore.put("C2", C3);
+		copyStore.put("C3", C3);
 		
 		P2.checkCopyOut(C3);
 		

@@ -18,7 +18,7 @@ public class TextBookRental {
 		
 		Worker w = controller.login(username, password);
 		if (w == null){
-			System.out.println("le login and/or password are invalide!");
+			System.out.println(" login and/or password are invalid!!");
 			return;
 		}
 		
