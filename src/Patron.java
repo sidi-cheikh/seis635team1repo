@@ -4,7 +4,7 @@ import java.util.List;
 public class Patron {
 	private String name;
 	private String patronID;
-	//private Copy C1, C2;
+	//private Copy C1, C2; s
 	private ArrayList<Copy> copiesOut;
 
 
