@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Patron {
@@ -6,6 +7,7 @@ public class Patron {
 	private String patronID;
 	//private Copy C1, C2; s
 	private ArrayList<Copy> copiesOut;
+	private Date date;
 
 
 	public Patron()
@@ -17,6 +19,7 @@ public class Patron {
 		this.name=name;
 		this.patronID=id;
 		copiesOut = new ArrayList<Copy>();
+	    this.date = new Date();
 	}
 
 	
@@ -57,26 +60,30 @@ public class Patron {
 
 	public String toString() {
 		// finish this: return basic Patron info as String
-		String result = "Name: " + name + "; PatronID: " + patronID + "\n";
+		Patron p1 = new Patron("P47", "Eric");
+		String result = null;
 		if(copiesOut.isEmpty()){
-			result += "  Checked out copies: 0";
+			 result = "Name: " + name + " \nPatronID: " + patronID +"\n";
+			result += "Checked out copies: 0" + "\nDate: "+p1.date+ "\n";
 		}
 		else
 		{
-			result += "Number of checked out copies: "+ copiesOut.size()+"\n";
-			result += "  Checked out copies: \n";
+			 result = "Name: " + name + " \nPatronID: " + patronID +";"+ "\n";
+			result += "Number of checked out copies: "+ copiesOut.size()+ "\nDate "+p1.date+ "\n";
+			result += "Checked out copies: \n";
 			for(Copy c: copiesOut){
-				result += "  - Title:"+c.getTitle() + "; ID:"+c.getCopyID()+" \n";
+				result += "\nTitle:"+c.getTitle() +"\nCopy ID:"+c.getCopyID()+" \n";
 			}
 		}
 		
-		if(hasOverdueCopy()){
-			result += "WARNING: The patron has these copies past due date\n";
-			for(Copy c: getOverdueCopies()){
-				result += " - "+ c.getTitle();
-			}
-		}
+//		if(hasOverdueCopy()){
+//			result += "WARNING: The patron has these copies past due date\n";
+//			for(Copy c: getOverdueCopies()){
+//				result += " - "+ c.getTitle();
+//			}
+		//}
 		
+	
 		return result;
 	}
 

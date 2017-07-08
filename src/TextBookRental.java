@@ -20,57 +20,33 @@ public class TextBookRental {
 			return;
 		}
 		
-		
-		
-		
-		
-		// Create a Scanner
 	    Scanner input = new Scanner(System.in);
 	   
 	    
 	  int option;
 	    
 	do {
-	    do{
+	    	do{
 	      
-	    // Display the Menu
-		boolean loggedIn = true;
-		String TextBookRental = 
-			    "Please select from the following options\n"+
-			    "1: Check Copies out\n" +
-			    "2: Check Copies In\n" +
-			    "3: Over Due Reports\n" +
-			    "4: ?????\n" +
-			    "5: Log out\n";
+				// Display the Menu
+				boolean loggedIn = true;
+				String TextBookRental = "\nPlease Enter your choice\n" + "1: Check Copies out\n"
+						+ "2: Check Copies In\n" + "3: Over Due Reports\n" + "4: ?????\n" + "5: Log out\n";
+
+				// Prompt the user to the main menu
+				System.out.print(TextBookRental);
+				System.out.println("Enter a choice:");
+				option = input.nextInt();
+				//reader.nextLine();
+				
+			} while (option > 5);
 			     
-			    // Prompt the user to the main menu
-			    System.out.print(TextBookRental);
-			    System.out.println ("Enter a choice:");
-			    option = input.nextInt();
-			    reader.nextLine();
-				    } while(option > 5);
-			     
-			    
-//			     
-//			     switch (option) {
-//			     
-//
-//		
-//		while (loggedIn) {
-//			System.out.println();
-//
-//			System.out.println("Please select from the following options");
-//			System.out.println("Enter 1 to Check Copies out");
-//			System.out.println("Enter 2 to Check Copies In");
-//			System.out.println("Enter 3 to Log out");
-//			
-//			int option = reader.nextInt();
-//			reader.nextLine();
 			
 			switch (option) {
 			
 			case 1:
 				checkoutUI(controller);
+				break;
 				//p.checkCopyOut(null);
 				//System.out.println("Displaying patron information after checkout");
 				//System.out.println(p);
@@ -97,19 +73,9 @@ public class TextBookRental {
     } while (option != 5);
 		System.out.printf("Session closed, you are logged out!");
 	   
-	}
-	
-	
-
+	}     
 			     
-			     
-			     
-			     
-			     
-			     
-			     
-			     
-	public static String checkoutUI(Controller controller){
+	public static void checkoutUI(Controller controller){
 		System.out.println("Enter PatronID");
 		Scanner reader = new Scanner(System.in);
 		String read1= reader.nextLine();
@@ -117,7 +83,7 @@ public class TextBookRental {
 		Patron p = controller.startSession(read1);
 		if(p == null){
 			System.out.println("Could not find a patron with the id "+read1);
-			return read1;
+			return ;//read1;
 		}
 
 		System.out.println("Displaying Patron information before Checkout");
@@ -127,11 +93,11 @@ public class TextBookRental {
 		if(!p.hasOverdueCopy())
 		{
 			boolean cont = true;
-			System.out.println("Enter CopyID");
+			System.out.println("To check out enter CopyID:");
 			String copyId = reader.nextLine();
 			
-//			while(cont)
-//			{
+			while(cont)
+			{
 	
 				Copy cp = controller.checkoutCopy(copyId);
 				
@@ -143,27 +109,29 @@ public class TextBookRental {
 				{
 					System.out.println(cp);
 				}
-			
-				System.out.println("Enter your choice");
 				
-//				String response = reader.nextLine();
-//				if(response.equals("exit"))
-//				{
-//					System.out.println("displaying the patron informations after checkout");
-//					System.out.println(p);
-//					
-//					cont = false;
-//				}
-//				else
-//				{
-//					copyId = response;
-//				}
-//			}
+				System.out.println("Eenter a CopyID or 'exit' to end scannings:");
+				String response = reader.nextLine();
+				if(response.equals("exit"))
+				{
+					System.out.println("displaying the patron informations after checkout");
+					System.out.println(p);
+					
+					cont = false;
+				}
+				else
+				{
+					copyId = response;
+				}
+			}
 		}
-		return read1;
+		else
+		{
+			System.out.println("*** WARNING: the patron has overdue copies so he could not checkout new ones\n");
 		}
+	}
 
-	public static String checkInUI(Controller controller){
+	public static void checkInUI(Controller controller){
 		System.out.println("Enter PatronID");
 		Scanner reader = new Scanner(System.in);
 		String read2= reader.nextLine();
@@ -171,10 +139,10 @@ public class TextBookRental {
 		Patron p = controller.startSession(read2);
 		if(p == null){
 			System.out.println("Could not find a patron with the id "+read2);
-			return read2;
+			
 		}
 
-		System.out.println("Displaying Patron information before Checkout");
+		System.out.println("~~~~~~~~Displaying Patron information before Checkout~~~~~~~");
 		System.out.println(p);
 
 		
@@ -211,6 +179,6 @@ public class TextBookRental {
 //			}
 //			}
 		}
-		return read2;
-		}
+		
+	}
 }

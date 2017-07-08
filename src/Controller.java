@@ -46,7 +46,7 @@ public class Controller {
 					p.checkCopyIn(c);
 				}
 				else
-					System.out.println ("Patron does not have any copy to checkIn");
+					System.out.println ("Patron does not have any copy out to checkIn");
 				return c;		
 	}
 	

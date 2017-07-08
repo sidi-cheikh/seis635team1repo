@@ -9,11 +9,13 @@ public class Copy
 	private Date checkoutDate;
 	private Date dueDate;
 	private int duration = 0; //10 days
+	private Date date;
 
 	public Copy(String copyID, String title)
 	{
 		this.setCopyID(copyID);
 		this.setTitle(title);
+		this.date = new Date();
 	}
 	
 	public String getCopyID() {
@@ -60,6 +62,7 @@ public class Copy
 	
 	public String toString()
 	{
+		Copy c1 = new Copy("C1", "Fun with Objects");
 		String available;
 		if (this.getOutTo() == null) {
 			available = "Available";
@@ -69,9 +72,9 @@ public class Copy
 			this.getOutTo().getName();
 		}
 		
-		return this.getTitle() + 
-		" by " + this.getCopyID() +
-		"; " + available;
+		return "Title:"+this.getTitle() + 
+		"\nCopy ID: " + this.getCopyID() +
+		"\n" + available +"\nDate:"+c1.date;
 	
 
 
