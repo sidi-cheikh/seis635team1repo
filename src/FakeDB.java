@@ -36,9 +36,9 @@ public class FakeDB
 		return patronStore.get(patronID);
 	}
 	
-	public static Copy getCopy(String copyID)
+	public static Copy getCopy(String copy)
 	{
-		return copyStore.get(copyID);
+		return copyStore.get(copy);
 	}
 	
 

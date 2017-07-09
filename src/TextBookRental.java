@@ -3,70 +3,68 @@ import java.util.Scanner;
 
 public class TextBookRental {
 	public static void main(String args[]) {
-		//List<Worker> storeWorker = LoadUsers();
-		
+		// List<Worker> storeWorker = LoadUsers();
+
 		Controller controller = new Controller();
+
+		workerLoginUI(controller);
+
+		Scanner input = new Scanner(System.in);
+
+		int option;
+
+		do {
+			option = mainMenuUI(input);
+
+			switch (option) {
+
+			case 1:
+				checkoutUI(controller);
+				break;
+			case 2:
+				checkInUI(controller);
+				break;
+			case 3:
+				System.out.printf("Over Due Reports");
+				break;
+			case 4:
+				System.out.printf("?????");
+				break;
+
+			case 5:
+				System.out.printf("Session closed, you are logged out!");
+				break;
+
+			default:
+				System.out.println("Invalid option ");
+				break;
+			}
+
+		} while (option != 5);
+		System.out.printf("Session closed, you are logged out!");
+
+	}
+
+	private static void workerLoginUI(Controller controller) {
+		// Ask user for username and password
 		
 		boolean loginOk = false;
 		while(!loginOk){
-			workerLoginUI(controller);
-		}
-				
-	    Scanner input = new Scanner(System.in);
-	   
-	    
-	  int option;
-	    
-		do {
-		    	option = mainMenuUI(input);
-				     
-				
-				switch (option) {
-				
-				case 1:
-					checkoutUI(controller);
-					break;
-				case 2:
-					checkInUI(controller);
-					break;
-				case 3:
-					System.out.printf("Over Due Reports");
-					break;
-				case 4:
-					System.out.printf("?????");
-					break;
-					
-				case 5:
-					System.out.printf("Session closed, you are logged out!");
-					break;
-					
-				default: 
-					System.out.println("Invalid option ");
-					break;
-				}
-				
-		
-		} while (option != 5);
-			System.out.printf("Session closed, you are logged out!");
-		   
-		}
-
-	private static boolean workerLoginUI(Controller controller) {
-		// Ask user for username and password
-		Scanner reader = new Scanner(System.in);
-		System.out.println("Enter a valid username: ");
-		String username = reader.nextLine();
-		System.out.println("Enter the password: ");
-		String password = reader.nextLine();
-		
-		Worker w = controller.login(username, password);
-		if (w == null){
-			System.out.println("Re login and/or password are invalide!");
-			return false;
-		}
-		else
-		{
-			return true;
+			Scanner reader = new Scanner(System.in);
+			System.out.println("Enter a valid username: ");
+			String username = reader.nextLine();
+			System.out.println("Enter the password: ");
+			String password = reader.nextLine();
+			
+			Worker w = controller.login(username, password);
+			if (w == null){
+				System.out.println("Re login and/or password are invalide!");
+				loginOk = false;
+			}
+			else
+			{
+				loginOk = true;
+			}
 		}
 	}
 
@@ -76,8 +74,12 @@ public class TextBookRental {
      
 			// Display the Menu
 			boolean loggedIn = true;
-			String TextBookRental = "\nPlease Enter your choice\n" + "1: Check Copies out\n"
-					+ "2: Check Copies In\n" + "3: Over Due Reports\n" + "4: ?????\n" + "5: Log out\n";
+			String TextBookRental = "\nPlease Enter your choice\n" + 
+						"1: Check Copies out\n"
+						+ "2: Check Copies In\n" 
+						+ "3: Over Due Reports\n" 
+						+ "4: \n" 
+						+ "5: Log out\n";
 
 			// Prompt the user to the main menu
 			System.out.print(TextBookRental);

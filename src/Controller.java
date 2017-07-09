@@ -9,7 +9,8 @@ public class Controller {
 		model = new Model();
 	}
 	
-	public Worker login(String username, String password){
+	public Worker login(String username, String password)
+	{
 		
 		return model.findWorker(username, password);
 	}

@@ -8,8 +8,8 @@ public class Model {
 		return FakeDB.getPatron(patronId);
 	}
 	
-	public Copy findCopy(String copyId){
-		return FakeDB.getCopy(copyId);
+	public Copy findCopy(String string){
+		return FakeDB.getCopy(string);
 	} 
 	
 	public Worker findWorker(String workerlogin, String workerpasswd){
