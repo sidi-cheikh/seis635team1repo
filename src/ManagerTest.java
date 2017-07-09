@@ -5,10 +5,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class ManagerTest {
-	
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
 
+		@Test
+		public void testToString()
+		{
+			Manager testManager = new Manager();
+			assertEquals(testManager.generatedReport, testManager.toString());
+		}
 }
