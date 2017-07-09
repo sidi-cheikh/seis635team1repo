@@ -31,7 +31,7 @@ public class PatronTest {
 		testPatron = new Patron();
 		Copy testCopy = new Copy("c2", "testCopy");
 		copiesOut.remove(testCopy);
-		assertEquals(true, testPatron.checkCopyIn(testCopy));
+		assertEquals(false, testPatron.checkCopyIn(testCopy));
 	}
 
 	@Test
