@@ -9,6 +9,7 @@ public class Copy {
 	private Date dueDate;
 	private int duration = 10; // 10 days
 	private int fine = 10;
+	private int payment;
 	public Copy(String copyID, String title) {
 		this.setCopyID(copyID);
 		this.setTitle(title);
@@ -103,7 +104,7 @@ public class Copy {
 	public boolean payFine() {
 		// TODO Auto-generated method stub
 		if(isOverdue() == true){
-			int payment = fine;
+			payment = fine;
 		return true;
 		}
 		return false;

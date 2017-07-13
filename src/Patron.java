@@ -133,14 +133,14 @@ public class Patron {
 	}
 	//remove overDue Copies
 	public List<Copy> removeOverdueCopies(){
-		List<Copy> overdueCopiesFinePaid = new ArrayList<Copy>();
+		List<Copy> overdueCopies = new ArrayList<Copy>();
 		for(Copy c: copiesOut){
-			if (c.payFine()) {
-				overdueCopiesFinePaid.remove(c);
+			if (hasOverdueFinePaid() == true) {
+				overdueCopies.remove(c);
 			}
 		}
 		
-		return overdueCopiesFinePaid;
+		return overdueCopies;
 	}
 	
 	public String getName() {
