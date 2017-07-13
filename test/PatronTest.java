@@ -18,7 +18,7 @@ public class PatronTest {
 
 	@Test
 	public void testCheckCopyOut() {
-		testPatron = new Patron();
+		testPatron = new Patron("P1", "Sidi");
 		Copy testCopy = new Copy("c2", "testCopy");
 		assertTrue(testPatron.checkCopyOut(testCopy));
 	}

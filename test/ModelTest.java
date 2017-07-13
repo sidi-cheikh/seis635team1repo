@@ -14,7 +14,6 @@ public class ModelTest {
 	public void testGetPatron() {
 		testModel = new Model();
 		Patron testPatron = new Patron("P2", "Ashraya");
-		
 		assertTrue(testPatron.equals(testModel.getPatron(testPatron.getPatronID())));
 	}
 
