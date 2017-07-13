@@ -28,28 +28,34 @@ public class Patron {
 	}
 
 	public boolean checkCopyOut(Copy c) {
-		// finish this
-		/*if (C1 == null) {
-			C1 = c;
+
+		if(c.isAvailable()){
+			copiesOut.add(c);
+			c.setOutTo(this);
 			return true;
-		} else if (C2 == null) {
-			C2 = c;
+		}
+		else
+		{
 			return true;
-		}*/
+		}
 		
-		copiesOut.add(c);
-		c.setOutTo(this);
 		
-		return true;
 	}
 
 	public boolean checkCopyIn(Copy c) {
 		
-		copiesOut.remove(c);
-		c.setOutTo(null);
-		
-		return false;
+		if(this.equals(c.getOutTo())){
+			copiesOut.remove(c);
+			c.setOutTo(null);
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
+	
+	
 
 	/*
 	 * @Override public boolean equals(Object o) { // finish this: two are

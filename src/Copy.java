@@ -74,7 +74,7 @@ public class Copy
 		
 		return "Title:"+this.getTitle() + 
 		"\nCopy ID: " + this.getCopyID() +
-		"\n" + available +"\nDate:"+c1.date;
+		"\n" + available;
 	
 
 

@@ -20,7 +20,7 @@ public class ControllerTest {
 		Worker testWorker = new Worker("worker1", "pass");
 		Controller testController = new Controller();
 		model.findWorker("worker1", "pass");
-		assertEquals(testWorker, testController.login("worker1", "pass"));
+		assertTrue(testWorker.equals(testController.login("worker1", "pass")));
 	}
 
 	@Test
@@ -45,14 +45,10 @@ public class ControllerTest {
 
 	@Test
 	public void testCheckInCopy() {
-		Controller testController = new Controller();
 		Patron p1 = new Patron("P47", "Eric");
 		Copy copy1 = new Copy("c1", "test c1");
-		testController.checkoutCopy("c1");
-		model.findCopy("c1");
-		p1=session.getPatron();
-		//Patron p11=session.getPatron();
-		assertEquals(copy1, testController.checkInCopy("c1"));
+		p1.checkCopyOut(copy1);
+		assertTrue(p1.checkCopyIn(copy1));
 	}
 
 }

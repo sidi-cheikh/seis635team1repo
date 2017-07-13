@@ -15,7 +15,7 @@ public class ModelTest {
 		testModel = new Model();
 		Patron testPatron = new Patron("P2", "Ashraya");
 		
-		assertEquals(testPatron, testModel.getPatron(testPatron.getPatronID()));
+		assertTrue(testPatron.equals(testModel.getPatron(testPatron.getPatronID())));
 	}
 
 	@Test
@@ -31,8 +31,8 @@ public class ModelTest {
 		testModel = new Model();
 		Worker testWorker = new Worker("worker1", "pass");
 		
-		assertEquals(testWorker, testModel.
-				findWorker(testWorker.getWorkerName(), testWorker.getPassword()));
+		assertTrue(testWorker.equals(testModel.
+				findWorker(testWorker.getWorkerName(), testWorker.getPassword())));
 	}
 
 }
