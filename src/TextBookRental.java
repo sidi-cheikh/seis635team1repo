@@ -98,26 +98,13 @@ public class TextBookRental {
 		
 		if(p.hasOverdueCopy())
 		{
-		System.out.println("You have a overdue notice pending Please pay fine");
-		System.out.println("Do you want to pay fine (Y/N)");
-		String opt= reader.nextLine();
-			if (opt == "y"||opt == "Y"){
-				
-			//	Copy c =new Copy();
-				//c.getFine();
 				checkingInCopies(controller, reader, p);
-			
+				
+				System.out.println("You have a overdue notice pending Please pay fine");
+				System.out.println("You will not be able to check new copiesout unless you pay fine");
+					
 			}
-			else
-			{
-				System.out.println("You can not checkin books until you pay fine");
-			}
-			}
-		else
-		{
-			checkingInCopies(controller, reader, p);
-		}
-
+		
 	}
 
 	public static void checkingInCopies(Controller controller, Scanner reader, Patron p) {
@@ -171,58 +158,6 @@ public class TextBookRental {
 		System.out.println(p);
 
 		
-	/*	if(p.hasOverdueCopy())
-		{
-		System.out.println("You have a overdue notice pending Please pay fine");
-		System.out.println("Do you want to pay fine (Y/N)");
-		String opt= reader.nextLine();
-			if (opt=="y"||opt=="Y"){
-				
-				Copy c =new Copy();
-				c.getFine();
-			
-			}
-			else
-			{
-				System.out.println("You can not checkout new books");
-			}
-			}
-		else
-		{
-			boolean cont = true;
-			System.out.println("Enter CopyID");
-			String copyId = reader.nextLine();
-			
-			while(cont)
-			{
-	
-				Copy cp = controller.checkoutCopy(copyId);
-				
-				if(cp == null)
-				{
-					System.out.println("Copy not found");
-				}
-				else
-				{
-					System.out.println(cp);
-				}
-			
-				System.out.println("enter copy id or 'exit' if you want to end scanning");
-				
-				String response = reader.nextLine();
-				if(response.equals("exit"))
-				{
-					System.out.println("displaying the patron informations after checkout");
-					System.out.println(p);
-					
-					cont = false;
-				}
-				else
-				{
-					copyId = response;
-				}
-			}
-		}*/
 		if(!p.hasOverdueCopy())
 		{
 			boolean cont = true;
