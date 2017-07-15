@@ -8,8 +8,13 @@ public class HoldTest {
 
 	@Test
 	public void canCheckIfPatronHasHod() {
+		
+	}
+	
+	@Test
+	public void canCheckIfTheHoldInitiallySetCorrectly(){
 		Patron p = new Patron("P1", "TestHod");
-		p.hasHold();
+		assertFalse(p.hasHold());
 	}
 
 }
