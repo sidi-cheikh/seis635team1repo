@@ -19,6 +19,14 @@ public class HoldTest {
 		copy.setDueDate(new Date(yesterdaytime));
 	}
 	
+	public Copy createAndCheckoutOverdueCopy(Patron patron){
+		Copy copy = new Copy("C1", "Test Hold");
+		patron.checkCopyOut(copy);
+		makeCopyOverdue(copy);
+		patron.markHold();
+		return copy;
+	}
+	
 	@Test
 	public void canCheckIfTheHoldInitiallySetCorrectly(){
 		Patron p = createNewPatron();
@@ -50,11 +58,7 @@ public class HoldTest {
 	@Test
 	public void testMarkingHoldOnPatronWithOverduCopy(){
 		Patron patron = createNewPatron();
-		Copy copy = new Copy("C1", "Test Hold");
-		patron.checkCopyOut(copy);
-		makeCopyOverdue(copy);
-		patron.markHold();
-		
+		createAndCheckoutOverdueCopy(patron);
 		assertTrue(patron.hasHold());
 		
 	}
@@ -62,10 +66,7 @@ public class HoldTest {
 	@Test
 	public void testCopyInHolds(){
 		Patron patron = createNewPatron();
-		Copy copy = new Copy("C1", "Test Hold");
-		patron.checkCopyOut(copy);
-		makeCopyOverdue(copy);
-		patron.markHold();
+		Copy copy = createAndCheckoutOverdueCopy(patron);
 		
 		Hold copyHold = patron.getHolds().get(0);
 		assertTrue(copyHold.getCopy().equals(copy));
