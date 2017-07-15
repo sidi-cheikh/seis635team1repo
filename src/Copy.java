@@ -8,6 +8,10 @@ public class Copy
 	private Patron outTo;
 	private Date checkoutDate;
 	private Date dueDate;
+	public Date getDueDate() {
+		return dueDate;
+	}
+
 	private int duration = 5; //10 days
 	private Date date;
 
@@ -113,9 +117,7 @@ public class Copy
 	}
 
 	public void setDueDate(Date date) {
-		// TODO Auto-generated method stub
 		dueDate = date;
-		
 	}
 	
 }

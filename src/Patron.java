@@ -53,14 +53,6 @@ public class Patron {
 		}
 	}
 	
-	
-
-	/*
-	 * @Override public boolean equals(Object o) { // finish this: two are
-	 * equals iff same patron ID
-	 * 
-	 * return false; }
-	 */
 
 	public String toString() {
 		// finish this: return basic Patron info as String
@@ -75,17 +67,9 @@ public class Patron {
 			result = "Name: " + name + " \nPatronID: " + patronID +";"+ "\n";
 			result += "Number of checked out copies: "+ copiesOut.size()+ "\n";
 			for(Copy c: copiesOut){
-				result += "\nTitle:"+c.getTitle() +"\nCopy ID:"+c.getCopyID()+" \n";
+				result += "\n  -Title:"+c.getTitle() +"\n   Copy ID:"+c.getCopyID()+" \n   Due Date:"+c.getDueDate();
 			}
 		}
-		
-//		if(hasOverdueCopy()){
-//			result += "WARNING: The patron has these copies past due date\n";
-//			for(Copy c: getOverdueCopies()){
-//				result += " - "+ c.getTitle();
-//			}
-		//}
-		
 	
 		return result;
 	}
@@ -102,9 +86,6 @@ public class Patron {
 		p1.checkCopyIn(copy);
 		System.out.println(p1);
 		
-
-		//Patron p2 = FakeDB.getPatron("P47");
-		//Copy c1 = FakeDB.getCopy("C1");
 	}
 
 	public boolean hasOverdueCopy(){

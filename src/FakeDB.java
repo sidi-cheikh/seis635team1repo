@@ -29,15 +29,16 @@ public class FakeDB
 		Copy C2 = new Copy("C2", "More Fun with Objects");
 		copyStore.put("C2", C2);
 		
-		// P3
+		// P3 with overdue copy
+		Patron P3 = new Patron("P3", "Patron 3");
 		Copy C3 = new Copy("C3", "Even More Fun with Objects");
 		copyStore.put("C3", C3);
-		P2.checkCopyOut(C3);
+		P3.checkCopyOut(C3);
 		// making the copy overdue
 		Date now = new Date();
 		long yesterdaytime = now.getTime() - 24*3600*1000;
 		C3.setDueDate(new Date(yesterdaytime));
-		
+		patronStore.put("P3", P3);
 		
 		//adding more copies
 		
