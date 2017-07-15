@@ -38,5 +38,12 @@ public class HoldTest {
 		List<Hold> holds = patron.getHolds();
 		
 	}
+	
+	@Test
+	public void ifHoldListIsEmplyOnNewPatron(){
+		Patron patron = createNewPatron();
+		List<Hold> holds = patron.getHolds();
+		assertTrue(holds.isEmpty());
+	}
 
 }
