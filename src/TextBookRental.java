@@ -14,6 +14,19 @@ public class TextBookRental {
 
 	private static void mainMenuUI(Controller controller) {
 		
+		System.out.println("------------------------------------------------------------------\n");
+		System.out.println(" The system initially has the folloing patrons and copies :\n");
+		System.out.println(" Patrons :\n");
+		System.out.println(" * P1 : doesn't have any checked out copy\n");
+		System.out.println(" * P2 : has the copy C2 checked out to him");
+		System.out.println(" * P3 : has an OVERDUE copy C3 checked out to him");
+		System.out.println(" Copies :\n");
+		System.out.println(" * C1 : Available\n");
+		System.out.println(" * C2 : Checked out to P2\n");
+		System.out.println(" * C3 : Overdue and Checked out to P3\n");
+		System.out.println(" * C4 : Available\n");
+		System.out.println(" * C5 : Available\n");
+		System.out.println("-----------------------------------------------------------------\n");
 
 		boolean endsession =false;
 
@@ -46,6 +59,13 @@ public class TextBookRental {
 	}
 
 	private static void workerLoginUI(Controller controller) {
+		
+		System.out.println("------------------------------------------------------------------\n");
+		System.out.println(" the system initially contains one worker with the credentials :\n");
+		System.out.println(" * username : worker1\n");
+		System.out.println(" * password : pass\n");
+		System.out.println("-----------------------------------------------------------------\n");
+		
 		
 		
 		boolean loginOk = false;
