@@ -50,7 +50,6 @@ public class HoldTest {
 		
 		Date now = new Date();
 		long yesterdaytime = now.getTime() - 24*3600*1000;
-		// change the due date of the copy
 		Date yesterday = new Date(yesterdaytime);
 		copy.setDueDate(new Date(yesterdaytime));
 		

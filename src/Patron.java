@@ -139,12 +139,17 @@ public class Patron {
 	}
 
 	public boolean hasHold() {
-		return false;
+		return !holds.isEmpty();
 		
 	}
 
 	public void markHold() {
-		
+		holds = new ArrayList<Hold>();
+		for(Copy c: copiesOut){
+			if(c.isOverdue()){
+				holds.add(new Hold(this, c));
+			}
+		}
 	}
 
 	public List<Hold> getHolds() {

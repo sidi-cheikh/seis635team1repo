@@ -111,5 +111,11 @@ public class Copy
 		
 		Copy c2 = FakeDB.getCopy("C2");
 	}
+
+	public void setDueDate(Date date) {
+		// TODO Auto-generated method stub
+		dueDate = date;
+		
+	}
 	
 }
