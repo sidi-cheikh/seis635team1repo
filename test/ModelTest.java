@@ -11,13 +11,6 @@ public class ModelTest {
 	Model testModel;
 
 	@Test
-	public void testGetPatron() {
-		testModel = new Model();
-		Patron testPatron = new Patron("P2", "Ashraya");
-		assertTrue(testPatron.equals(testModel.getPatron(testPatron.getPatronID())));
-	}
-
-	@Test
 	public void testFindCopy() {
 		testModel = new Model();
 		Copy testCopy = new Copy("C3", "Even More Fun with Objects");
