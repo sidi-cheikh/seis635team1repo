@@ -102,7 +102,7 @@ public class TextBookRental {
 			return ;//read1;
 		}
 
-		System.out.println("Displaying Patron information before Checkout");
+		System.out.println("~~~~~~~~~~~Displaying Patron information before Checkout~~~~~~~~~~");
 		System.out.println(p);
 
 		

@@ -68,9 +68,8 @@ public class Patron {
 		}
 		else
 		{
-			 result = "Name: " + name + " \nPatronID: " + patronID +";"+ "\n";
+			result = "Name: " + name + " \nPatronID: " + patronID +";"+ "\n";
 			result += "Number of checked out copies: "+ copiesOut.size()+ "\n";
-			result += "Checked out copies: \n";
 			for(Copy c: copiesOut){
 				result += "\nTitle:"+c.getTitle() +"\nCopy ID:"+c.getCopyID()+" \n";
 			}
