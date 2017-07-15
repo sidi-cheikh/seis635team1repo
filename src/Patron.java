@@ -147,6 +147,11 @@ public class Patron {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public List<Hold> getHolds() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	
