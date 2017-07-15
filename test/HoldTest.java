@@ -59,6 +59,19 @@ public class HoldTest {
 		
 	}
 	
+	@Test
+	public void testCopyInHolds(){
+		Patron patron = createNewPatron();
+		Copy copy = new Copy("C1", "Test Hold");
+		patron.checkCopyOut(copy);
+		makeCopyOverdue(copy);
+		patron.markHold();
+		
+		Hold copyHold = patron.getHolds().get(0);
+		assertTrue(copyHold.getCopy().equals(copy));
+		
+	}
+	
 	
 
 }
