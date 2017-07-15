@@ -1,5 +1,7 @@
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class FakeDB
@@ -41,13 +43,22 @@ public class FakeDB
 		
 		copyStore.put("C1", new Copy("C1", "Clean Code"));
 		copyStore.put("C4", new Copy("C4", "Code Smells"));
-		copyStore.put("C5", new Copy("C5", "Refactoring "));
+		copyStore.put("C5", new Copy("C5", "Refactoring"));
 		
 
 		
 		workerStore.put("worker1", new Worker("worker1", "pass"));
 	}
 
+	public static List<Patron> getPatrons(){
+		List<Patron> patrons = new ArrayList<Patron>();	
+		for(String key: patronStore.keySet()){
+			patrons.add(patronStore.get(key));
+		}
+		
+		return patrons;
+	}
+	
 	public static Patron getPatron(String patronID)
 	{
 		return patronStore.get(patronID);

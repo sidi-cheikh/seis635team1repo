@@ -1,3 +1,5 @@
+import java.util.List;
+
 //sohana
 public class Controller {
 
@@ -62,8 +64,18 @@ public class Controller {
 		
 	}
 
-public int markholds() {
-	// TODO Auto-generated method stub
-	return 0;
-}
+	public int markholds() {
+		List<Patron> patrons = model.getAllPatrons();
+		
+		int total = 0;
+		for(Patron p: patrons){
+			
+			if(p.hasOverdueCopy() && !p.hasHold()){
+				p.markHold();
+				total++;
+			}
+		}
+			
+		return total;
+	}
 }

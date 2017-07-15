@@ -1,3 +1,4 @@
+import java.util.List;
 
 public class Model {
 	
@@ -21,5 +22,9 @@ public class Model {
 		{
 			return null;
 		}
+	}
+	
+	public List<Patron> getAllPatrons(){
+		return FakeDB.getPatrons();
 	}
 }
