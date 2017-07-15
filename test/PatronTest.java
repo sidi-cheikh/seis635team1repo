@@ -18,11 +18,9 @@ public class PatronTest {
 
 	@Test
 	public void testCheckCopyOut() {
-		ArrayList<Copy> copiesOut = new ArrayList<Copy>();
-		testPatron = new Patron();
+		testPatron = new Patron("P1", "Sidi");
 		Copy testCopy = new Copy("c2", "testCopy");
-		copiesOut.add(testCopy);
-		assertEquals(copiesOut, testPatron.checkCopyOut(testCopy));
+		assertTrue(testPatron.checkCopyOut(testCopy));
 	}
 
 	@Test

@@ -4,13 +4,11 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class EventTest {
-
-	
+public class HoldTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+
 	}
 
 }

@@ -5,8 +5,7 @@ import java.util.List;
 public class Patron {
 	private String name;
 	private String patronID;
-	//private Copy C1, C2; s
-	private ArrayList<Copy> copiesOut;
+	private ArrayList<Copy> copiesOut = new ArrayList<Copy>();
 	private Date date;
 
 
@@ -18,7 +17,6 @@ public class Patron {
 	public Patron(String id, String name) {
 		this.name=name;
 		this.patronID=id;
-		copiesOut = new ArrayList<Copy>();
 	    this.date = new Date();
 	}
 
@@ -28,28 +26,34 @@ public class Patron {
 	}
 
 	public boolean checkCopyOut(Copy c) {
-		// finish this
-		/*if (C1 == null) {
-			C1 = c;
+
+		if(c.isAvailable()){
+			copiesOut.add(c);
+			c.setOutTo(this);
 			return true;
-		} else if (C2 == null) {
-			C2 = c;
+		}
+		else
+		{
 			return true;
-		}*/
+		}
 		
-		copiesOut.add(c);
-		c.setOutTo(this);
 		
-		return true;
 	}
 
 	public boolean checkCopyIn(Copy c) {
 		
-		copiesOut.remove(c);
-		c.setOutTo(null);
-		
-		return false;
+		if(this.equals(c.getOutTo())){
+			copiesOut.remove(c);
+			c.setOutTo(null);
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
+	
+	
 
 	/*
 	 * @Override public boolean equals(Object o) { // finish this: two are
