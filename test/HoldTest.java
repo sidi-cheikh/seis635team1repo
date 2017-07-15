@@ -7,8 +7,9 @@ import org.junit.Test;
 public class HoldTest {
 
 	@Test
-	public void test() {
-
+	public void canCheckIfPatronHasHod() {
+		Patron p = new Patron("P1", "TestHod");
+		p.hasHold();
 	}
 
 }
