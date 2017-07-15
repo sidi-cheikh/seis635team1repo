@@ -61,4 +61,9 @@ public class Controller {
    public void endSession(){
 		
 	}
+
+public int markholds() {
+	// TODO Auto-generated method stub
+	return 0;
+}
 }

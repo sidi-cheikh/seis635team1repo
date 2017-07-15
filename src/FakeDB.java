@@ -1,3 +1,4 @@
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,16 +18,32 @@ public class FakeDB
 		sessionStore = new HashMap<Integer, Session>();
 		workerStore = new HashMap<String, Worker>();
 		
+		// P1 desn't have any copy checked out
 		patronStore.put("P1", new Patron("P1", "Eric"));
+		
+		// P2 have the copy C2 checked out to him
 		Patron P2 = new Patron("P2", "Ashraya");
 		patronStore.put("P2",P2);
+		Copy C2 = new Copy("C2", "More Fun with Objects");
+		copyStore.put("C2", C2);
 		
-		copyStore.put("C1", new Copy("C1", "Fun with Objects"));
-		copyStore.put("C2", new Copy("C2", "More Fun with Objects"));
-		
+		// P3
 		Copy C3 = new Copy("C3", "Even More Fun with Objects");
 		copyStore.put("C3", C3);
 		P2.checkCopyOut(C3);
+		// making the copy overdue
+		Date now = new Date();
+		long yesterdaytime = now.getTime() - 24*3600*1000;
+		C3.setDueDate(new Date(yesterdaytime));
+		
+		
+		//adding more copies
+		
+		copyStore.put("C1", new Copy("C1", "Clean Code"));
+		copyStore.put("C4", new Copy("C4", "Code Smells"));
+		copyStore.put("C5", new Copy("C5", "Refactoring "));
+		
+
 		
 		workerStore.put("worker1", new Worker("worker1", "pass"));
 	}

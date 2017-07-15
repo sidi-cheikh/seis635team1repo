@@ -13,12 +13,12 @@ public class TextBookRental {
 	}
 
 	private static void mainMenuUI(Controller controller) {
-		Scanner input = new Scanner(System.in);
+		
 
-		int option;
+		boolean endsession =false;
 
 		do {
-			option = mainMenuUIOptionsReader(input);
+			int option = mainMenuUIOptionsReader();
 
 			switch (option) {
 
@@ -29,14 +29,11 @@ public class TextBookRental {
 				checkInUI(controller);
 				break;
 			case 3:
-				System.out.printf("Over Due Reports");
+				MarkHoldsUI(controller);
 				break;
 			case 4:
-				System.out.printf("?????");
-				break;
-
-			case 5:
 				System.out.printf("Session closed, you are logged out!");
+				endsession = true;
 				break;
 
 			default:
@@ -44,7 +41,7 @@ public class TextBookRental {
 				break;
 			}
 
-		} while (option != 5);
+		} while (!endsession);
 		System.out.printf("Session closed, you are logged out!");
 	}
 
@@ -72,7 +69,8 @@ public class TextBookRental {
 		}
 	}
 
-	private static int mainMenuUIOptionsReader(Scanner input) {
+	private static int mainMenuUIOptionsReader() {
+		Scanner input = new Scanner(System.in);
 		int option;
 		do{
      
@@ -226,5 +224,27 @@ public class TextBookRental {
 			System.out.println("*** the patron has no more checked out copies !!");
 		}
 	}
-
+	
+	private static void MarkHoldsUI(Controller controller) {
+		
+		Scanner input = new Scanner(System.in);
+		
+		String option;
+		do{
+		     
+			// Display the Menu
+			String holdsprompt = "\n Marking holds, please enter\n" 
+						+ "Y: to continue\n"
+						+ "N: to cancel\n";
+			System.out.print(holdsprompt);
+			System.out.println("Enter a choice:");
+			option = input.nextLine();
+			
+		} while (!option.toLowerCase().equals("y") || option.toLowerCase().equals("n"));
+		
+		if(option.toLowerCase().equals("y")){
+			int numberOfMarks = controller.markholds();
+			System.out.println("** Done: hold was marked on "+numberOfMarks+" Patron(s)");
+		}
+	}
 }
