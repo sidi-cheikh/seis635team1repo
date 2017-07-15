@@ -13,6 +13,12 @@ public class HoldTest {
 		return new Patron("P1", "TestHod");
 	}
 	
+	public void makeCopyOverdue(Copy copy){
+		Date now = new Date();
+		long yesterdaytime = now.getTime() - 24*3600*1000;
+		copy.setDueDate(new Date(yesterdaytime));
+	}
+	
 	@Test
 	public void canCheckIfTheHoldInitiallySetCorrectly(){
 		Patron p = createNewPatron();
@@ -46,16 +52,13 @@ public class HoldTest {
 		Patron patron = createNewPatron();
 		Copy copy = new Copy("C1", "Test Hold");
 		patron.checkCopyOut(copy);
-		
-		
-		Date now = new Date();
-		long yesterdaytime = now.getTime() - 24*3600*1000;
-		Date yesterday = new Date(yesterdaytime);
-		copy.setDueDate(new Date(yesterdaytime));
-		
+		makeCopyOverdue(copy);
 		patron.markHold();
+		
 		assertTrue(patron.hasHold());
 		
 	}
+	
+	
 
 }
