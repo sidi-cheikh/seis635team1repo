@@ -144,12 +144,10 @@ public class Patron {
 	}
 
 	public void markHold() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public List<Hold> getHolds() {
-		// TODO Auto-generated method stub
 		return holds;
 	}
 	

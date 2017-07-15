@@ -32,12 +32,6 @@ public class HoldTest {
 		Hold hold = new Hold(patron, copy);
 	}
 	
-	@Test
-	public void canGetTheListOfHoldsOnAPatron(){
-		Patron patron = createNewPatron();
-		List<Hold> holds = patron.getHolds();
-		
-	}
 	
 	@Test
 	public void ifHoldListIsEmplyOnNewPatron(){
