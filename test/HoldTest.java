@@ -29,5 +29,12 @@ public class HoldTest {
 		Copy copy = new Copy("C1", "Test Hold");
 		Hold hold = new Hold(patron, copy);
 	}
+	
+	@Test
+	public void canGetTheListOfHoldsOnAPatron(){
+		Patron p = createNewPatron();
+		List<Hold> holds = p.getHolds();
+		
+	}
 
 }
