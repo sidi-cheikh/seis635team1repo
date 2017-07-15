@@ -138,8 +138,8 @@ public class Patron {
 		return copiesOut.size() > 0;
 	}
 
-	public void hasHold() {
-		// TODO Auto-generated method stub
+	public boolean hasHold() {
+		return false;
 		
 	}
 	
