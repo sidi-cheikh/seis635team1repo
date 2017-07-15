@@ -3,18 +3,22 @@ import java.util.Scanner;
 
 public class TextBookRental {
 	public static void main(String args[]) {
-		// List<Worker> storeWorker = LoadUsers();
-
+		
 		Controller controller = new Controller();
-
+		
 		workerLoginUI(controller);
 
+		mainMenuUI(controller);
+
+	}
+
+	private static void mainMenuUI(Controller controller) {
 		Scanner input = new Scanner(System.in);
 
 		int option;
 
 		do {
-			option = mainMenuUI(input);
+			option = mainMenuUIOptionsReader(input);
 
 			switch (option) {
 
@@ -42,14 +46,14 @@ public class TextBookRental {
 
 		} while (option != 5);
 		System.out.printf("Session closed, you are logged out!");
-
 	}
 
 	private static void workerLoginUI(Controller controller) {
-		// Ask user for username and password
+		
 		
 		boolean loginOk = false;
 		while(!loginOk){
+			// Ask user for username and password
 			Scanner reader = new Scanner(System.in);
 			System.out.println("Enter a valid username: ");
 			String username = reader.nextLine();
@@ -68,26 +72,24 @@ public class TextBookRental {
 		}
 	}
 
-	private static int mainMenuUI(Scanner input) {
+	private static int mainMenuUIOptionsReader(Scanner input) {
 		int option;
 		do{
      
 			// Display the Menu
 			boolean loggedIn = true;
-			String TextBookRental = "\nPlease Enter your choice\n" + 
-						"1: Check Copies out\n"
+			String TextBookRental = "\nPlease Enter your choice\n" 
+						+ "1: Check Copies out\n"
 						+ "2: Check Copies In\n" 
-						+ "3: Over Due Reports\n" 
-						+ "4: \n" 
-						+ "5: Log out\n";
+						+ "3: Mark Holds\n" 
+						+ "4: Log out\n";
 
 			// Prompt the user to the main menu
 			System.out.print(TextBookRental);
 			System.out.println("Enter a choice:");
 			option = input.nextInt();
-			//reader.nextLine();
 			
-		} while (option > 5);
+		} while (option > 4);
 		return option;
 	}     
 			     
