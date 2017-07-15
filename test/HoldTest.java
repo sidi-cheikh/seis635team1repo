@@ -25,9 +25,9 @@ public class HoldTest {
 	
 	@Test
 	public void canCreateHold(){
-		Patron p = createNewPatron();
-		Copy c = new Copy("C1", "Test Hold");
-		Hold h = new Hold(p, c);
+		Patron patron = createNewPatron();
+		Copy copy = new Copy("C1", "Test Hold");
+		Hold hold = new Hold(patron, copy);
 	}
 
 }
