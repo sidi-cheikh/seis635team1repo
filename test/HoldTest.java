@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import java.util.Date;
 import java.util.List;
 
 import org.junit.AfterClass;
@@ -38,6 +39,24 @@ public class HoldTest {
 		Patron patron = createNewPatron();
 		List<Hold> holds = patron.getHolds();
 		assertTrue(holds.isEmpty());
+	}
+	
+	@Test
+	public void testMarkingHoldOnPatronWithOverduCopy(){
+		Patron patron = createNewPatron();
+		Copy copy = new Copy("C1", "Test Hold");
+		patron.checkCopyOut(copy);
+		
+		
+		Date now = new Date();
+		long yesterdaytime = now.getTime() - 24*3600*1000;
+		// change the due date of the copy
+		Date yesterday = new Date(yesterdaytime);
+		copy.setDueDate(new Date(yesterdaytime));
+		
+		patron.markHold();
+		assertTrue(patron.hasHold());
+		
 	}
 
 }
