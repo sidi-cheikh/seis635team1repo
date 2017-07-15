@@ -22,5 +22,12 @@ public class HoldTest {
 		p.markHold();
 		
 	}
+	
+	@Test
+	public void canCreateHold(){
+		Patron p = createNewPatron();
+		Copy c = new Copy("C1", "Test Hold");
+		Hold h = new Hold(p, c);
+	}
 
 }
