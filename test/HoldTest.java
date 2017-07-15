@@ -5,11 +5,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class HoldTest {
-
-	@Test
-	public void canCheckIfPatronHasHod() {
-		
-	}
 	
 	@Test
 	public void canCheckIfTheHoldInitiallySetCorrectly(){
