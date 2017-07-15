@@ -7,7 +7,7 @@ public class Patron {
 	private String patronID;
 	private ArrayList<Copy> copiesOut = new ArrayList<Copy>();
 	private Date date;
-
+	private List<Hold> holds = new ArrayList<Hold>();
 
 	public Patron()
 	{ 
@@ -150,7 +150,7 @@ public class Patron {
 
 	public List<Hold> getHolds() {
 		// TODO Auto-generated method stub
-		return null;
+		return holds;
 	}
 	
 	
